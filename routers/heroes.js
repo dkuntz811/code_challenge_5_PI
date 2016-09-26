@@ -61,6 +61,20 @@ router.get('/', function(req, res){
 	});//end of find
 });//end of get
 
+router.delete('/:id', function(req, res){
+	console.log('params', req.params);
+	Hero.remove({'_id': req.params.id}, function(err){
+		if(err){
+			console.log('delete error occurred', err);
+			res.sendStatus(500);
+		} else{
+			console.log('removed ', req.params.id);
+			res.sendStatus(200);
+		}
+	});//end remove hero
+
+});//end router delete
+
 
 
 

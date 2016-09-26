@@ -11,4 +11,16 @@ myApp.controller('viewController', ['$scope', '$http', function($scope, $http){
 			console.log('error');
 		});
 	};
+
+	$scope.deleteHero = function(id){
+		console.log('delete button clicked', id);
+		$http({
+			method: 'DELETE',
+			url: '/heroes/' + id
+		}).then(function successCallback(response){
+			console.log('delete response =', response);
+		}, function errorCallback(response){
+			console.log('error');
+		});
+	};
 }]);
