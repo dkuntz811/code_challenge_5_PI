@@ -14,7 +14,7 @@ app.use('/heroes', heroes);
 
 app.use(express.static('public'));
 
-var portDecision = process.env.PORT || 4040;
+var portDecision = process.env.PORT || 4242;
 
 var server = app.listen(portDecision, function(){
 	var port=server.address().port;

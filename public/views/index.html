@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "myApp">
 	<head>
 		<meta charset="utf-8">
 		<title>Super Heroes Code Challenge</title>
+			<script src="./vendors/angular.min.js"></script>
+			<script src="./vendors/angular-route.min.js"></script>
+			<script src="./scripts/client.js"></script>
+			<script src="./scripts/controllers/addController.js"></script>
+			<script src="./scripts/controllers/viewController.js"></script>
 	</head>
 	<header>Super Heroes Code Challenge</header>
-	<body>
-
+	<body ng-controller = "addController">
+		<ul>
+		<li><a href="#add">Add</a></li>
+		<li><a href="#view">View</a></li>
+	  </ul>
+	<main ng-view></main>
+			<form>
+        <label for="alias">Alias
+					<input ng-model = "alias" type = "text">
+				</label>
+				<label for="first_name">First Name:
+					<input ng-model = "first_name" type = "text">
+				</label>
+				<label for="last_name">Last Name:
+					<input ng-model = "last_name" type = "text">
+				</label>
+				<label for="city">City:
+					<input ng-model = "first_name" type = "text">
+				</label>
+				<label for="power_name">Power Name:
+					<input ng-model = "power_name" type = "text">
+				</label>
+				<input ng-click="addHero()" type = "button" value = "Add new"
+			</form>
 	</body>
 </html>
