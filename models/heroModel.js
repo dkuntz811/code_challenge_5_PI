@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var heroSchema = new Schema({
-	alias: {type: String, required: true},
+	alias: String,
 	first_name: String,
 	last_name: String,
 	city: String,

@@ -22,7 +22,44 @@ router.get('/test', function(req, res){
 });//end dummyHero.save
 });//end router.get
 
+
+//post hereos
+router.post('/', function(req, res){
+	console.log('in heroes post');
+	console.log('req.body is', req.body);
+	var hero = req.body;
+	var newIncomingHero = new Hero({
+		alias: hero.name,
+		first_name: hero.first_name,
+		last_name: hero.last_name,
+		city: hero.city,
+		power_name: hero.power_name
+	});
+
+	newIncomingHero.save(function(err){
+		if (err){
+			console.log('error occured in save', err);
+			res.sendStatus(500);
+		}else {
+			console.log('hero saved successfully');
+			res.sendStatus(201);
+		}
+
+	});//end save hero
+
+});//end router.post
 //Get all heroes//
+router.get('/', function(req, res){
+	console.log('in heroes get');
+	Hero.find({}, function(err, foundHeroes){
+		if(err){
+			console.log('error getting heroes', err);
+			res.sendStatus(500);
+		} else {
+			res.send(foundHeroes);
+		}
+	});//end of find
+});//end of get
 
 
 

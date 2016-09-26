@@ -6,6 +6,8 @@ var mongoose = require('mongoose');
 var connection = require('../modules/connection');
 mongoose.connect(connection);
 
+app.use(bodyParser.json());
+
 var index = require('../routers/index');
 app.use('/', index);
 
